@@ -1,22 +1,20 @@
 package nancy.miage.fr.bar.model;
 
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
 /**
  * Created by machin on 10/11/2017.
  */
 
-public class Consommable {
-    private int id;
+public class Consommable extends RealmObject{
+    @PrimaryKey
+    private String id;
     private String name;
-    private TypeConsommable type;
+    private String type;
     private double price;
 
-    public Consommable(String name,TypeConsommable type, double price) {
-        this.name = name;
-        this.type=type;
-        this.price = price;
-    }
-
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -32,15 +30,28 @@ public class Consommable {
         return price;
     }
 
-    public TypeConsommable getType() {
+    public String getType() {
         return type;
     }
 
-    public void setType(TypeConsommable type) {
+    public void setType(String type) {
         this.type = type;
     }
 
-    public void setPrice(float price) {
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setPrice(double price) {
         this.price = price;
     }
+
+    public void saveEnum(TypeConsommable val) {
+        this.type = val.toString();
+    }
+
+    public TypeConsommable getEnum() {
+        return TypeConsommable.valueOf(type);
+    }
+
 }

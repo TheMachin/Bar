@@ -55,7 +55,7 @@ public class ConsummableListAdapter extends BaseAdapter {
         }
 
         viewHolder.tvLibelleCnso.setText(c.getName());
-        viewHolder.tvTypeConso.setText(c.getType().name());
+        viewHolder.tvTypeConso.setText(c.getType());
         viewHolder.tvPrice.setText(String.valueOf(c.getPrice())+" € TTC");
 
         return convertView;

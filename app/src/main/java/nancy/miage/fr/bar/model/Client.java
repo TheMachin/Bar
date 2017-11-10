@@ -3,29 +3,27 @@ package nancy.miage.fr.bar.model;
 import java.util.Date;
 import java.util.List;
 
+import io.realm.RealmList;
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
 /**
  * Created by machin on 10/11/2017.
  */
 
-public class Client {
-    private int id;
+public class Client extends RealmObject {
+    @PrimaryKey
+    private String id;
     private String nom;
     private String prenom;
     private float total;
     private Date date;
-    private List<Consommable> consummables;
+    private RealmList<Consommable> consummables;
     private Table table;
 
-    public Client(String nom, String prenom, float total, Date date, List<Consommable> consummables, Table table) {
-        this.nom = nom;
-        this.prenom = prenom;
-        this.total = total;
-        this.date = date;
-        this.consummables = consummables;
-        this.table = table;
-    }
 
-    public int getId() {
+
+    public String getId() {
         return id;
     }
 
@@ -45,11 +43,39 @@ public class Client {
         return date;
     }
 
-    public List<Consommable> getConsummables() {
+    public RealmList<Consommable> getConsummables() {
         return consummables;
     }
 
     public Table getTable() {
         return table;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
+    }
+
+    public void setTotal(float total) {
+        this.total = total;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public void setConsummables(RealmList<Consommable> consummables) {
+        this.consummables = consummables;
+    }
+
+    public void setTable(Table table) {
+        this.table = table;
     }
 }

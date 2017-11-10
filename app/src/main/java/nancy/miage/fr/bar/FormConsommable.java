@@ -9,7 +9,9 @@ import android.widget.Spinner;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
+import io.realm.Realm;
 import nancy.miage.fr.bar.model.Consommable;
 import nancy.miage.fr.bar.model.Table;
 import nancy.miage.fr.bar.model.TypeConsommable;
@@ -42,7 +44,18 @@ public class FormConsommable extends AppCompatActivity {
         Spinner mySpinner=(Spinner) findViewById(R.id.spinTC);
         String type = mySpinner.getSelectedItem().toString();
 
-        Consommable c = new Consommable(nom.getText().toString(),TypeConsommable.valueOf(type),Double.parseDouble(prix.getText().toString()));
+
+
+        //Consommable c = new Consommable(nom.getText().toString(),TypeConsommable.valueOf(type),Double.parseDouble(prix.getText().toString()));
+
+        Realm.init(getApplicationContext());
+        Realm realm = Realm.getDefaultInstance();
+        realm.beginTransaction();
+        Consommable c = realm.createObject(Consommable.class, UUID.randomUUID().toString());
+        c.setName(nom.getText().toString());
+        c.setPrice(Double.parseDouble(prix.getText().toString()));
+        c.setType(type);
+        realm.commitTransaction();
 
     }
 }

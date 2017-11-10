@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import io.realm.Realm;
+import io.realm.RealmResults;
 import nancy.miage.fr.bar.model.Consommable;
 import nancy.miage.fr.bar.model.Table;
 import nancy.miage.fr.bar.model.TypeConsommable;
@@ -23,16 +25,15 @@ public class FormOrder extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_order);
 
-        /*List<Consommable> listC = new ArrayList<Consommable>();
-        listC.add(new Consommable("Eau", TypeConsommable.BOISSON,1.0));
-        listC.add(new Consommable("Eau gazeuse", TypeConsommable.BOISSON,1.2));*/
+        Realm.init(getApplicationContext());
+        Realm realm = Realm.getDefaultInstance();
 
-        List<Table> listT = new ArrayList<Table>();
-        listT.add(new Table(1,2,"Haut"));
+        RealmResults<Table> tables = realm.where(Table.class).findAll();
+
         Spinner spinT = (Spinner) findViewById(R.id.spinTable);
         List<String> listTC = new ArrayList<String>();
         listTC.add("Table");
-        for(Table t : listT){
+        for(Table t : tables){
             listTC.add(t.getId()+" Nombre de place : "+t.getNbPlace()+" Salle : "+t.getSalle());
         }
 
