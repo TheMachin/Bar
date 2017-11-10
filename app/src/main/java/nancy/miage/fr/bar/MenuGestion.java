@@ -17,4 +17,20 @@ public class MenuGestion extends AppCompatActivity {
         Intent intent = new Intent(this, ListConsummable.class);
         startActivity(intent);
     }
+
+    public void showListTable(View view){
+        Intent intent = new Intent(this, ListTable.class);
+        startActivity(intent);
+    }
+
+    public void formTable(View view){
+        Intent intent = new Intent(this, FormTable.class);
+        startActivity(intent);
+    }
+
+    public void formConsommable(View view){
+        Intent intent = new Intent(this, FormConsommable.class);
+        startActivity(intent);
+    }
+
 }

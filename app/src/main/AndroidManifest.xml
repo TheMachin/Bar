@@ -19,7 +19,10 @@
         <activity android:name=".FormOrder" />
         <activity android:name=".ListConsummable" />
         <activity android:name=".MenuGestion" />
-        <activity android:name=".CheckOrder"></activity>
+        <activity android:name=".CheckOrder" />
+        <activity android:name=".ListTable" />
+        <activity android:name=".FormConsommable" />
+        <activity android:name=".FormTable"></activity>
     </application>
 
 </manifest>

@@ -12,23 +12,24 @@ import java.util.List;
 
 import nancy.miage.fr.bar.R;
 import nancy.miage.fr.bar.model.Consommable;
+import nancy.miage.fr.bar.model.Table;
 
 /**
  * Created by machin on 10/11/2017.
  */
 
-public class ConsummableListAdapter extends BaseAdapter {
+public class TableListAdapter extends BaseAdapter {
 
     private LayoutInflater inflater;
-    private List<Consommable> consommables = Collections.emptyList();
+    private List<Table> tables = Collections.emptyList();
 
-    public ConsummableListAdapter(Context context) {
+    public TableListAdapter(Context context) {
         this.inflater = LayoutInflater.from(context);
     }
 
     @Override
     public int getCount() {
-        return consommables.size();
+        return tables.size();
     }
 
     @Override
@@ -43,40 +44,40 @@ public class ConsummableListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Consommable c = consommables.get(position);
+        Table t = tables.get(position);
 
         ViewHolder viewHolder;
         if (convertView == null) {
-            convertView = inflater.inflate(R.layout.list_item_consommable, null);
+            convertView = inflater.inflate(R.layout.list_item_table, null);
             viewHolder = new ViewHolder(convertView);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        viewHolder.tvLibelleCnso.setText(c.getName());
-        viewHolder.tvTypeConso.setText(c.getType().name());
-        viewHolder.tvPrice.setText(String.valueOf(c.getPrice())+" € TTC");
+        viewHolder.tvIdTable.setText("N° "+String.valueOf(t.getId()));
+        viewHolder.tvSalle.setText("Nb Place : "+String.valueOf(t.getNbPlace()));
+        viewHolder.tvNbPlace.setText("Salle : "+t.getSalle());
 
         return convertView;
     }
 
     static class ViewHolder {
-        public TextView tvLibelleCnso;
+        public TextView tvIdTable;
 
-        public TextView tvPrice;
+        public TextView tvNbPlace;
 
-        public TextView tvTypeConso;
+        public TextView tvSalle;
 
         public ViewHolder(View view){
-            tvLibelleCnso = view.findViewById(R.id.tv_c_libelle);
-            tvPrice = view.findViewById(R.id.tv_price);
-            tvTypeConso = view.findViewById(R.id.tv_type_c);
+            tvIdTable = view.findViewById(R.id.tv_no_table);
+            tvNbPlace = view.findViewById(R.id.tv_nbPlace);
+            tvSalle = view.findViewById(R.id.tv_salle);
         }
     }
 
-    public void updateList(List<Consommable> consommables){
-        this.consommables = consommables;
+    public void updateList(List<Table> tables){
+        this.tables = tables;
         notifyDataSetChanged();
     }
 
