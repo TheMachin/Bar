@@ -17,11 +17,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".FormOrder" />
-        <activity android:name=".ListConsummable" />
-        <activity android:name=".MenuGestion" />
+        <activity android:name=".ListConsumable" />
+        <activity android:name=".MenuAdministration" />
         <activity android:name=".CheckOrder" />
         <activity android:name=".ListTable" />
-        <activity android:name=".FormConsommable" />
+        <activity android:name=".FormConsumable" />
         <activity android:name=".FormTable"></activity>
     </application>
 

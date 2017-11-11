@@ -12,22 +12,21 @@ import java.util.List;
 import java.util.UUID;
 
 import io.realm.Realm;
-import nancy.miage.fr.bar.model.Consommable;
-import nancy.miage.fr.bar.model.Table;
-import nancy.miage.fr.bar.model.TypeConsommable;
+import nancy.miage.fr.bar.model.Consumable;
+import nancy.miage.fr.bar.model.TypeConsumable;
 
-public class FormConsommable extends AppCompatActivity {
+public class FormConsumable extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_form_consommable);
+        setContentView(R.layout.activity_form_consumable);
 
 
         Spinner spinT = (Spinner) findViewById(R.id.spinTC);
         List<String> listTC = new ArrayList<String>();
         listTC.add("Type de consommable");
-        for(TypeConsommable t : TypeConsommable.values()){
+        for(TypeConsumable t : TypeConsumable.values()){
             listTC.add(t.name());
         }
 
@@ -44,14 +43,10 @@ public class FormConsommable extends AppCompatActivity {
         Spinner mySpinner=(Spinner) findViewById(R.id.spinTC);
         String type = mySpinner.getSelectedItem().toString();
 
-
-
-        //Consommable c = new Consommable(nom.getText().toString(),TypeConsommable.valueOf(type),Double.parseDouble(prix.getText().toString()));
-
         Realm.init(getApplicationContext());
         Realm realm = Realm.getDefaultInstance();
         realm.beginTransaction();
-        Consommable c = realm.createObject(Consommable.class, UUID.randomUUID().toString());
+        Consumable c = realm.createObject(Consumable.class, UUID.randomUUID().toString());
         c.setName(nom.getText().toString());
         c.setPrice(Double.parseDouble(prix.getText().toString()));
         c.setType(type);

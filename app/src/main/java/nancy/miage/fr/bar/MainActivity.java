@@ -15,7 +15,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
     }
 
     public void order(View view){
@@ -24,12 +23,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void menuAdministration(View view){
-        Intent intent= new Intent(this, MenuGestion.class);
+        Intent intent= new Intent(this, MenuAdministration.class);
         startActivity(intent);
     }
 
     public void showListConsummable(View view){
-        Intent intent = new Intent(this, ListConsummable.class);
+        Intent intent = new Intent(this, ListConsumable.class);
         startActivity(intent);
     }
 

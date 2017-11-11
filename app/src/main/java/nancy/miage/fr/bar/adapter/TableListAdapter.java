@@ -11,7 +11,6 @@ import java.util.Collections;
 import java.util.List;
 
 import nancy.miage.fr.bar.R;
-import nancy.miage.fr.bar.model.Consommable;
 import nancy.miage.fr.bar.model.Table;
 
 /**

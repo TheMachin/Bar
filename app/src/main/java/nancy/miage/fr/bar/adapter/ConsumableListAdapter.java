@@ -11,24 +11,24 @@ import java.util.Collections;
 import java.util.List;
 
 import nancy.miage.fr.bar.R;
-import nancy.miage.fr.bar.model.Consommable;
+import nancy.miage.fr.bar.model.Consumable;
 
 /**
  * Created by machin on 10/11/2017.
  */
 
-public class ConsummableListAdapter extends BaseAdapter {
+public class ConsumableListAdapter extends BaseAdapter {
 
     private LayoutInflater inflater;
-    private List<Consommable> consommables = Collections.emptyList();
+    private List<Consumable> consumables = Collections.emptyList();
 
-    public ConsummableListAdapter(Context context) {
+    public ConsumableListAdapter(Context context) {
         this.inflater = LayoutInflater.from(context);
     }
 
     @Override
     public int getCount() {
-        return consommables.size();
+        return consumables.size();
     }
 
     @Override
@@ -43,11 +43,11 @@ public class ConsummableListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Consommable c = consommables.get(position);
+        Consumable c = consumables.get(position);
 
         ViewHolder viewHolder;
         if (convertView == null) {
-            convertView = inflater.inflate(R.layout.list_item_consommable, null);
+            convertView = inflater.inflate(R.layout.list_item_consumable, null);
             viewHolder = new ViewHolder(convertView);
             convertView.setTag(viewHolder);
         } else {
@@ -75,8 +75,8 @@ public class ConsummableListAdapter extends BaseAdapter {
         }
     }
 
-    public void updateList(List<Consommable> consommables){
-        this.consommables = consommables;
+    public void updateList(List<Consumable> Consumables){
+        this.consumables = Consumables;
         notifyDataSetChanged();
     }
 

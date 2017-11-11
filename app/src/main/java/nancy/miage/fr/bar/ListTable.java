@@ -5,16 +5,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import io.realm.Realm;
 import io.realm.RealmResults;
-import nancy.miage.fr.bar.adapter.ConsummableListAdapter;
 import nancy.miage.fr.bar.adapter.TableListAdapter;
-import nancy.miage.fr.bar.model.Consommable;
 import nancy.miage.fr.bar.model.Table;
-import nancy.miage.fr.bar.model.TypeConsommable;
 
 public class ListTable extends AppCompatActivity {
 

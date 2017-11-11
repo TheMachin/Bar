@@ -14,9 +14,7 @@ import java.util.StringTokenizer;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
-import nancy.miage.fr.bar.model.Consommable;
 import nancy.miage.fr.bar.model.Table;
-import nancy.miage.fr.bar.model.TypeConsommable;
 
 public class FormOrder extends AppCompatActivity {
 

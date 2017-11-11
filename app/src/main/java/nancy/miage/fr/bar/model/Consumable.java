@@ -7,7 +7,7 @@ import io.realm.annotations.PrimaryKey;
  * Created by machin on 10/11/2017.
  */
 
-public class Consommable extends RealmObject{
+public class Consumable extends RealmObject{
     @PrimaryKey
     private String id;
     private String name;
@@ -46,12 +46,12 @@ public class Consommable extends RealmObject{
         this.price = price;
     }
 
-    public void saveEnum(TypeConsommable val) {
+    public void saveEnum(TypeConsumable val) {
         this.type = val.toString();
     }
 
-    public TypeConsommable getEnum() {
-        return TypeConsommable.valueOf(type);
+    public TypeConsumable getEnum() {
+        return TypeConsumable.valueOf(type);
     }
 
 }

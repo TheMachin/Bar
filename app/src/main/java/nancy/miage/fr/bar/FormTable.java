@@ -5,12 +5,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Spinner;
 
 import io.realm.Realm;
-import nancy.miage.fr.bar.model.Consommable;
 import nancy.miage.fr.bar.model.Table;
-import nancy.miage.fr.bar.model.TypeConsommable;
 
 public class FormTable extends AppCompatActivity {
 
