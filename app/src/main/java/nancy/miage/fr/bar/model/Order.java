@@ -13,11 +13,12 @@ import io.realm.annotations.PrimaryKey;
 public class Order extends RealmObject {
     @PrimaryKey
     private String id;
+    private String nom;
+    private String prenom;
     private float total;
     private Date date;
     private RealmList<Consumable> consummables;
     private Table table;
-    private Client client;
 
 
 
@@ -41,12 +42,20 @@ public class Order extends RealmObject {
         return table;
     }
 
-    public Client getClient() {
-        return client;
+    public String getNom() {
+        return nom;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public void setPrenom(String prenom) {
+        this.prenom = prenom;
     }
 
     public void setTotal(float total) {
