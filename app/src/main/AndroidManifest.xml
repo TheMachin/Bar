@@ -23,6 +23,7 @@
         <activity android:name=".ListTable" />
         <activity android:name=".FormConsumable" />
         <activity android:name=".FormTable"></activity>
+        <activity android:name=".SelectConsoActivity"></activity>
     </application>
 
 </manifest>

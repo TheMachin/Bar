@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void order(View view){
-        Intent intent= new Intent(this, FormOrder.class);
+        Intent intent= new Intent(this, SelectConsoActivity.class);
         startActivity(intent);
     }
 
@@ -79,6 +79,21 @@ public class MainActivity extends AppCompatActivity {
             consumable.setName("Ice Tea");
             consumable.setType(TypeConsumable.BOISSON.name());
             consumable.setPrice(1.70);
+
+            consumable = realm.createObject(Consumable.class, UUID.randomUUID().toString());
+            consumable.setName("RedBull");
+            consumable.setType(TypeConsumable.BOISSON.name());
+            consumable.setPrice(2.70);
+
+            consumable = realm.createObject(Consumable.class, UUID.randomUUID().toString());
+            consumable.setName("Limonade");
+            consumable.setType(TypeConsumable.BOISSON.name());
+            consumable.setPrice(0.50);
+
+            consumable = realm.createObject(Consumable.class, UUID.randomUUID().toString());
+            consumable.setName("Cafe");
+            consumable.setType(TypeConsumable.BOISSON.name());
+            consumable.setPrice(1.0);
         }
     };
 
