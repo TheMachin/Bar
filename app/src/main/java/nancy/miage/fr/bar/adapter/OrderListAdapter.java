@@ -1,12 +1,14 @@
 package nancy.miage.fr.bar.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
 import java.util.Collections;
 import java.util.List;
 
@@ -54,8 +56,13 @@ public class OrderListAdapter extends BaseAdapter{
         }
 
         viewHolder.tvClient.setText(o.getPrenom()+" "+o.getNom());
-        viewHolder.tvTable.setText(String.valueOf(o.getTable().getId())+" "+o.getTable().getSalle());
-        viewHolder.tvInfo.setText(String.valueOf(o.getConsummables().size())+" "+String.valueOf(o.getTotal())+" € TTC");
+        Log.i("idTable",String.valueOf(o.getTable().getId()));
+        Log.i("t",o.getTable().getSalle());
+
+        viewHolder.tvTable.setText(String.valueOf("N°"+o.getTable().getId())+" Salle : "+o.getTable().getSalle());
+        viewHolder.tvInfo.setText(String.valueOf("Nb Place : "+o.getConsummables().size())+". Total : "+String.valueOf(o.getTotal())+" € TTC");
+        SimpleDateFormat s = new SimpleDateFormat("\"dd.MM.yyyy 'à' HH:mm:ss \"");
+        viewHolder.tvDate.setText("Prise le : "+s.format(o.getDate()));
 
         return convertView;
     }
@@ -72,7 +79,8 @@ public class OrderListAdapter extends BaseAdapter{
         public ViewHolder(View view){
             tvClient = view.findViewById(R.id.tvClient);
             tvInfo = view.findViewById(R.id.tv_info);
-            tvDate = view.findViewById(R.id.tv_type_c);
+            tvDate = view.findViewById(R.id.tv_date);
+            tvTable = view.findViewById(R.id.tv_table);
         }
     }
 

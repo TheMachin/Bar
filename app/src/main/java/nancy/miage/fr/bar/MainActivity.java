@@ -7,11 +7,16 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 
+import java.util.Date;
 import java.util.UUID;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
+import io.realm.RealmList;
+import io.realm.RealmResults;
 import nancy.miage.fr.bar.model.Consumable;
+import nancy.miage.fr.bar.model.Order;
+import nancy.miage.fr.bar.model.Table;
 import nancy.miage.fr.bar.model.TypeConsumable;
 
 public class MainActivity extends AppCompatActivity {
@@ -25,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
         RealmConfiguration realmConfiguration = new RealmConfiguration.Builder()
                 .initialData(initialDataTransaction).build();
         Realm.setDefaultConfiguration(realmConfiguration);
+
+        Realm.init(getApplicationContext());
+        Realm realm = Realm.getDefaultInstance();
+
     }
 
     public void order(View view){
@@ -39,6 +48,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void showListConsummable(View view){
         Intent intent = new Intent(this, ListConsumable.class);
+        startActivity(intent);
+    }
+
+    public void showListOrder(View view){
+        Intent intent = new Intent(this, ListOrder.class);
         startActivity(intent);
     }
 
@@ -94,6 +108,31 @@ public class MainActivity extends AppCompatActivity {
             consumable.setName("Cafe");
             consumable.setType(TypeConsumable.BOISSON.name());
             consumable.setPrice(1.0);
+
+            Table table = realm.createObject(Table.class, 1);
+            table.setNbPlace(4);
+            table.setSalle("Haut");
+
+            table = realm.createObject(Table.class, 2);
+            table.setNbPlace(2);
+            table.setSalle("Haut");
+
+            Order order = realm.createObject(Order.class,UUID.randomUUID().toString());
+            order.setNom("Martin");
+            order.setPrenom("Michel");
+            order.setDate(new Date());
+            order.setTable(table);
+            RealmResults<Consumable> consumables = realm.where(Consumable.class).findAll();
+            Double total = 0.0;
+            for(Consumable c : consumables){
+                total+=c.getPrice();
+            }
+            RealmList<Consumable> listConsos = new RealmList<Consumable>();
+            listConsos.addAll(consumables.subList(0, consumables.size()));
+            order.setConsummables(listConsos);
+            float t = Float.parseFloat(String.valueOf(total));
+            order.setTotal(t);
+
         }
     };
 

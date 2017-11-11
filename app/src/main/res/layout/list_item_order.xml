@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/tv_table"
-        android:gravity="right"
+        android:gravity="left"
         tools:text="nb consommable et prix" />
 
     <TextView
