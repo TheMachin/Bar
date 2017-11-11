@@ -22,8 +22,10 @@
         <activity android:name=".CheckOrder" />
         <activity android:name=".ListTable" />
         <activity android:name=".FormConsumable" />
-        <activity android:name=".FormTable"></activity>
-        <activity android:name=".SelectConsoActivity"></activity>
+        <activity android:name=".FormTable" />
+        <activity android:name=".ListOrder" />
+        <activity android:name=".PriceConsumable" />
+        <activity android:name=".SelectConsoActivity" />
     </application>
 
 </manifest>

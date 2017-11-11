@@ -33,4 +33,9 @@ public class MenuAdministration extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void updatePrice(View view){
+        Intent intent = new Intent(this, PriceConsumable.class);
+        startActivity(intent);
+    }
+
 }

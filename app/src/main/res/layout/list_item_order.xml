@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
-    android:padding="8dp"
-    android:background="#CFD8DC">
+    android:layout_height="wrap_content"
+    android:background="#CFD8DC"
+    android:orientation="vertical"
+    android:padding="8dp">
 
     <TextView
         android:id="@+id/tvClient"
@@ -15,25 +15,34 @@
         android:layout_alignParentTop="true"
         android:textSize="20sp"
         android:textStyle="bold"
-        tools:text="libelleTable" />
+        tools:text="libelleClient" />
 
     <TextView
-        android:id="@+id/tv_nbPlace"
+        android:id="@+id/tv_info"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_alignParentStart="true"
+        android:layout_below="@+id/tv_table"
         android:gravity="right"
-        tools:text="Nb place" />
+        tools:text="nb consommable et prix" />
 
     <TextView
-        android:id="@+id/tv_salle"
+        android:id="@+id/tv_table"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/tvClient"
         android:gravity="left"
-        tools:text="Salle" />
+        tools:text="Table et Salle" />
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tv_info"
+        android:text="Date de la commande" />
 
 
 </RelativeLayout>

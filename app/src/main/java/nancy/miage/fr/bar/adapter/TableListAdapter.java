@@ -69,7 +69,7 @@ public class TableListAdapter extends BaseAdapter {
         public TextView tvSalle;
 
         public ViewHolder(View view){
-            tvIdTable = view.findViewById(R.id.tv_no_table);
+            tvIdTable = view.findViewById(R.id.tvClient);
             tvNbPlace = view.findViewById(R.id.tv_nbPlace);
             tvSalle = view.findViewById(R.id.tv_salle);
         }
