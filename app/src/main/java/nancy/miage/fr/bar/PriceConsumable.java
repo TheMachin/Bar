@@ -53,29 +53,27 @@ public class PriceConsumable extends AppCompatActivity {
         int position = spin.getSelectedItemPosition();
         Log.i("positiontext",String.valueOf(position));
 
-        boolean error = false;
-
         if(position==0){
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setMessage("Veuillez sélectionner un consommable")
                     .setTitle("Erreur");
             AlertDialog dialog = builder.create();
             dialog.show();
-            error=true;
+            return;
         }
 
-        if(editPrice.getText().toString().isEmpty()&&Double.parseDouble(editPrice.getText().toString())<0){
+        if(editPrice.getText().toString().isEmpty()||Double.parseDouble(editPrice.getText().toString())<0){
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setMessage("Veuillez indiquer prix >= 0")
                     .setTitle("Erreur");
             AlertDialog dialog = builder.create();
             dialog.show();
-            error=true;
+            return;
         }
 
         Realm.init(getApplicationContext());
         Realm realm = Realm.getDefaultInstance();
-        Consumable c = consumables.get(position-1);
+        Consumable c = consumables.get(position - 1);
 
         realm.beginTransaction();
         c.setPrice(Double.parseDouble(editPrice.getText().toString()));
